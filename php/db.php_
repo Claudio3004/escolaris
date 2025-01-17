@@ -1,0 +1,23 @@
+<?php
+/*$host = 'localhost';
+$db = 'escolaris';
+$user = 'root';
+$password = '';
+
+// Conexión con MySQL usando mysqli
+$conn = new mysqli($host, $user, $password, $db);
+
+// Verificar conexión
+if ($conn->connect_error) {
+    die("Error de conexión: " . $conn->connect_error);
+}*/
+
+
+try {
+    $pdo = new PDO('mysql:host=localhost;dbname=escolaris', 'root', ''); // Ajusta las credenciales según tu configuración
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die('Error al conectar a la base de datos: ' . $e->getMessage());
+}
+?>
